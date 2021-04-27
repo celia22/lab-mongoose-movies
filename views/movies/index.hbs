@@ -1,0 +1,19 @@
+<div class="movies_view_container">
+
+  <h2>Movies index</h2>
+
+  <div class="celebrities_card_container">
+    {{#each moviesArr}}
+    <ul>
+      <h3> Title: {{this.title}}</h3>
+      <br>
+      <a class="btn" href="/movies/{{this.id}}">View details</a>
+    </ul>
+    <br>
+    <form action="/movies/{{this.id}}/delete" method="POST">
+      <button class="btn" type="submit" style="cursor: pointer;">Delete</button>
+    </form>
+    {{/each}}
+  </div>
+  <a class="btn" href="/movies/new"> Create a new movie</a>
+</div>

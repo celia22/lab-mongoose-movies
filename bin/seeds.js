@@ -23,13 +23,13 @@ mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
 //   })
 //   .catch(err => console.log(`An error occurred while creating celebs from the DB: ${err}`));
 
-const movies = [
+const moviesArr = [
   { title: 'Robin Hood', genre: 'police', plot: 'A nice guy tries to get back all the money the king stole' },
   { title: 'movie2', genre: 'genre2', plot: 'plot2' },
   { title: 'movie3', genre: 'genre3', plot: 'plot3' },
 ];
 
-Movie.create(movies)
+Movie.create(moviesArr)
   .then(moviesFromDB => {
     console.log(`Created ${moviesFromDB.length} movies`);
     mongoose.connection.close();
