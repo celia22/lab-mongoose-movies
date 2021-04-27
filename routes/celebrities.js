@@ -17,6 +17,15 @@ router.get('/celebrities', (req, res, next) => {
     });
 });
 
+router.get('/celebrities/new', (req, res, next) => res.render('celebrities/new'));
+
+router.post('/celebrities', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.create({ name, occupation, catchPhrase })
+    .then(() => res.redirect('/celebrities'))
+    .catch(() => res.render('celebrities/new'));
+});
+
 router.get('/celebrities/:id', (req, res, next) => {
   const { id } = req.params;
   Celebrity.findById(id)
@@ -28,17 +37,6 @@ router.get('/celebrities/:id', (req, res, next) => {
       next(error);
     });
 });
-
-router.get('/celebrities/new', (req, res, next) => res.render('/celebrities/new'));
-
-router.post('/celebrities', (req, res, next) => {
-  const { name, occupation, catchPhrase } = req.body;
-  Celebrity.create({ name, occupation, catchPhrase })
-    .save()
-    .then(() => res.redirect('/celebrities/index'))
-    .catch(() => res.render('celebrities/new'));
-});
-
 
 
 // router.post('/drones/:id/edit', (req, res, next) => {
