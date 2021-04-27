@@ -29,15 +29,17 @@ router.get('/celebrities/:id', (req, res, next) => {
     });
 });
 
+router.get('/celebrities/new', (req, res, next) => res.render('/celebrities/new'));
 
-// router.get('/drones/create', (req, res, next) => res.render('drones/create-form'));
+router.post('/celebrities', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.create({ name, occupation, catchPhrase })
+    .save()
+    .then(() => res.redirect('/celebrities/index'))
+    .catch(() => res.render('celebrities/new'));
+});
 
-// router.post('/drones/create', (req, res, next) => {
-//   const { name, propellers, maxSpeed } = req.body;
-//   Drone.create({ name, propellers, maxSpeed })
-//     .then(() => res.redirect('/drones'))
-//     .catch(() => res.render('drones/create-form'));
-// });
+
 
 // router.post('/drones/:id/edit', (req, res, next) => {
 //   const { name, propellers, maxSpeed } = req.body;
