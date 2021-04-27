@@ -10,6 +10,9 @@
       <a class="btn" href="/celebrities/{{this.id}}">View details</a>
     </ul>
     <br>
+    <form action="/celebrities/{{this.id}}/delete" method="POST">
+      <button class="btn" type="submit" style="cursor: pointer;">Delete</button>
+    </form>
     {{/each}}
   </div>
   <a class="btn" href="/celebrities/new"> Create a new celebrity</a>

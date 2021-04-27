@@ -38,6 +38,18 @@ router.get('/celebrities/:id', (req, res, next) => {
     });
 });
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  const { id } = req.params;
+  Celebrity.findByIdAndRemove(id)
+    .then(allCelebsFromDB => {
+      console.log('delete', allCelebsFromDB);
+      res.redirect('/celebrities');
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
 
 // router.post('/drones/:id/edit', (req, res, next) => {
 //   const { name, propellers, maxSpeed } = req.body;
@@ -50,16 +62,6 @@ router.get('/celebrities/:id', (req, res, next) => {
 //     .catch(() => res.render('drones/create-form'));
 // });
 
-// router.post('/drones/:id/delete', (req, res, next) => {
-//   const { id } = req.params;
-//   Drone.findByIdAndDelete(id)
-//     .then(drone => {
-//       console.log('delete', drone);
-//       res.redirect('/drones');
-//     })
-//     .catch(error => {
-//       next(error);
-//     });
-// });
+
 
 module.exports = router;
