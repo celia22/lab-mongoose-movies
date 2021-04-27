@@ -50,18 +50,4 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
     });
 });
 
-
-// router.post('/drones/:id/edit', (req, res, next) => {
-//   const { name, propellers, maxSpeed } = req.body;
-//   const { id } = req.params;
-//   Drone.findByIdAndUpdate(id, { name, propellers, maxSpeed }, { new: true })
-//     .then(drone => {
-//       console.log('update', drone);
-//       res.redirect('/drones');
-//     })
-//     .catch(() => res.render('drones/create-form'));
-// });
-
-
-
 module.exports = router;
