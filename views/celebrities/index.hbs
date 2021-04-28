@@ -7,12 +7,13 @@
     <ul>
       <h3> Celebrity name: {{this.name}}</h3>
       <br>
-      <a class="btn" href="/movies/{{this.id}}">View details</a>
+      <a class="btn" href="/celebrities/{{this.id}}">View details</a>
     </ul>
     <br>
     <form action="/celebrities/{{this.id}}/delete" method="POST">
       <button class="btn" type="submit" style="cursor: pointer;">Delete</button>
     </form>
+    <a class="btn" href="/celebrities/{{this.id}}/edit">Edit celebrity</a>
     {{/each}}
   </div>
   <a class="btn" href="/celebrities/new"> Create a new celebrity</a>

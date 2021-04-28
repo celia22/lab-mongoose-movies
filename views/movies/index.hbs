@@ -2,7 +2,7 @@
 
   <h2>Movies index</h2>
 
-  <div class="celebrities_card_container">
+  <div class="movies_card_container">
     {{#each moviesArr}}
     <ul>
       <h3> Title: {{this.title}}</h3>
@@ -10,9 +10,12 @@
       <a class="btn" href="/movies/{{this.id}}">View details</a>
     </ul>
     <br>
+
+    <br>
     <form action="/movies/{{this.id}}/delete" method="POST">
       <button class="btn" type="submit" style="cursor: pointer;">Delete</button>
     </form>
+    <a class="btn" href="/movies/{{this.id}}/edit">Edit movie</a>
     {{/each}}
   </div>
   <a class="btn" href="/movies/new"> Create a new movie</a>

@@ -1,0 +1,21 @@
+<div class="movies_card_container">
+
+  <h2>Edit the movie</h2>
+
+  <form action="/movies/{{this.allMoviesFromDB.id}}/edit" method="post">
+
+    <label>Title: </label>
+    <input type="text" name="title" value="{{this.allMoviesFromDB.title}}" />
+
+    <label>Genre </label>
+    <input type="text" name="genre" value="{{this.allMoviesFromDB.genre}}" />
+
+    <label>Plot: </label>
+    <input type="text" name="plot" value="{{this.allMoviesFromDB.plot}}" />
+
+    <button class="btn" type="submit">Edit</button>
+
+    <a class="btn" href="/">Back</a>
+
+  </form>
+</div>

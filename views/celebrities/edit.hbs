@@ -1,0 +1,21 @@
+<div class="celebrities_card_container">
+
+  <h2>Edit the celebrity</h2>
+
+  <form action="/celebrities/{{this.allCelebsFromDB.id}}/edit" method="post">
+
+    <label>Name: </label>
+    <input type="text" name="name" value="{{this.allCelebsFromDB.name}}" />
+
+    <label>Occupation </label>
+    <input type="text" name="occupation" value="{{this.allCelebsFromDB.occupation}}" />
+
+    <label>CatchPhrase: </label>
+    <input type="text" name="catchPhrase" value="{{this.allCelebsFromDB.catchPhrase}}" />
+
+    <button class="btn" type="submit">Edit</button>
+
+    <a class="btn" href="/">Back</a>
+
+  </form>
+</div>

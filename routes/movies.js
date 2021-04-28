@@ -49,5 +49,22 @@ router.post('/movies/:id/delete', (req, res, next) => {
     });
 });
 
-module.exports = router;
+router.get('/movies/:id/edit', (req, res, next) => {
+  const { id } = req.params;
+  Movie.findById(id)
+    .then(allMoviesFromDB => {
+      console.log(allMoviesFromDB);
+      res.render('movies/edit', { allMoviesFromDB });
+    })
+    .catch(() => res.render('/movies/:id/edit'));
+});
 
+router.post('/movies/:id', (req, res, next) => {
+  const { title, genre, plot } = req.body;
+  const { id } = req.params;
+  Movie.findByIdAndUpdate(id, { title, genre, plot }, { new: true })
+    .then(() => res.redirect('/movies'))
+    .catch(() => res.render('/movies/edit'));
+});
+
+module.exports = router;
