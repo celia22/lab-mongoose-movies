@@ -59,7 +59,7 @@ router.get('/movies/:id/edit', (req, res, next) => {
     .catch(() => res.render('/movies/:id/edit'));
 });
 
-router.post('/movies/:id', (req, res, next) => {
+router.post('/movies/:id/edit', (req, res, next) => {
   const { title, genre, plot } = req.body;
   const { id } = req.params;
   Movie.findByIdAndUpdate(id, { title, genre, plot }, { new: true })
